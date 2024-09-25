@@ -24,7 +24,5 @@ chmod +x kill-zumbi.sh
 ```
 ```bash
 ./kill-zumbi.sh
-
-
-
+```
 
