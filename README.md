@@ -20,9 +20,9 @@ git clone https://github.com/danielson150/kill-zumbi-linux
 cd kill-zumbi-linux
 ```
 ```bash
-chmod +x kill-zumbi.sh
+chmod +x kill-zombie.sh
 ```
 ```bash
-./kill-zumbi.sh
+./kill-zombie.sh
 ```
 
