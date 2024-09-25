@@ -14,7 +14,7 @@ O script `kill-zumbi.sh` é uma ferramenta simples para identificar e matar proc
 ## Uso do script no Linux (Necessário ter o git instalado na máquina)
 
 ```bash
-git clone https://github.com/danielson-alencar/scritps-shell
+git clone https://github.com/danielson150/kill-zumbi-linux
 ```
 ```bash
 cd scritps-shell
