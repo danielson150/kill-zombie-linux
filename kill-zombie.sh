@@ -3,8 +3,8 @@
 # Exibe todos os processos zumbis
 echo "Procurando processos zumbis..."
 
-# Lista os processos zumbis e seus PPIDs
-zombies=$(ps -eo stat,ppid | grep -w 'Z' | awk '{print $2}' | sort | uniq)
+# Lista os PPIDs dos processos zumbis
+zombies=$(ps -eo stat,ppid | awk '$1 == "Z" {print $2}' | sort -u)
 
 # Verifica se encontrou algum processo zumbi
 if [ -z "$zombies" ]; then
@@ -12,21 +12,12 @@ if [ -z "$zombies" ]; then
     exit 0
 fi
 
-# Para cada PPID encontrado, tenta finalizar o processo pai
+# Tenta finalizar os processos pais dos processos zumbis
 for ppid in $zombies; do
     echo "Encontrado processo zumbi com PPID: $ppid"
-    echo "Tentando matar o processo pai: $ppid"
-
-    # Verifica se o processo pai ainda existe
-    if ps -p $ppid > /dev/null; then
-        # Tenta matar o processo pai
-        sudo kill -9 $ppid
-        if [ $? -eq 0 ]; then
-            echo "Processo pai $ppid finalizado com sucesso."
-        else
-            echo "Falha ao finalizar o processo pai $ppid."
-        fi
+    if sudo kill -9 "$ppid" 2>/dev/null; then
+        echo "Processo pai $ppid finalizado com sucesso."
     else
-        echo "O processo pai $ppid não está mais em execução."
+        echo "Falha ao finalizar o processo pai $ppid ou ele já não está em execução."
     fi
 done
