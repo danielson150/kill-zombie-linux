@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O script `kill-zumbi.sh` é uma ferramenta simples para identificar e matar processos zumbis em sistemas Linux. Um processo zumbi é aquele que já terminou sua execução, mas seu processo pai não fez a devida coleta, deixando um "resíduo" no sistema. O objetivo deste script é encontrar esses processos e eliminar seus processos pais, caso seja seguro fazê-lo.
+O script `kill-zombie.sh` é uma ferramenta simples para identificar e matar processos zumbis em sistemas Linux. Um processo zumbi é aquele que já terminou sua execução, mas seu processo pai não fez a devida coleta, deixando um "resíduo" no sistema. O objetivo deste script é encontrar esses processos e eliminar seus processos pais, caso seja seguro fazê-lo.
 
 ## Como funciona
 
